@@ -148,10 +148,10 @@ string imprimirMatrizDeTransicion() {
     string resultado = "DIA CERO:\r\n\r\n";
     resultado += "La matriz de transición es:\r\n\r\n";
 
-    resultado += "       ";
+    resultado += "      ";
     for (int j = 0; j < 5; j++) {
         resultado += IAs[j];
-        resultado += "     ";
+        resultado += "         ";
     }
     resultado += "\r\n";
 
