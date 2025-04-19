@@ -85,10 +85,10 @@ namespace CMGrupo4 {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Arial", 21, System::Drawing::FontStyle::Bold));
 			this->textBox1->ForeColor = System::Drawing::Color::White;
-			this->textBox1->Location = System::Drawing::Point(39, 49);
+			this->textBox1->Location = System::Drawing::Point(71, 329);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(481, 433);
+			this->textBox1->Size = System::Drawing::Size(488, 453);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &IA::textBox1_TextChanged);
 			// 
@@ -98,10 +98,10 @@ namespace CMGrupo4 {
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Arial", 20, System::Drawing::FontStyle::Bold));
 			this->textBox2->ForeColor = System::Drawing::Color::White;
-			this->textBox2->Location = System::Drawing::Point(621, 32);
+			this->textBox2->Location = System::Drawing::Point(718, 98);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(314, 466);
+			this->textBox2->Size = System::Drawing::Size(314, 280);
 			this->textBox2->TabIndex = 1;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &IA::textBox2_TextChanged);
 			// 
@@ -111,10 +111,10 @@ namespace CMGrupo4 {
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Arial", 14, System::Drawing::FontStyle::Bold));
 			this->textBox3->ForeColor = System::Drawing::Color::White;
-			this->textBox3->Location = System::Drawing::Point(1030, 49);
+			this->textBox3->Location = System::Drawing::Point(642, 405);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(472, 433);
+			this->textBox3->Size = System::Drawing::Size(472, 217);
 			this->textBox3->TabIndex = 2;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &IA::textBox3_TextChanged);
 			// 
@@ -124,10 +124,10 @@ namespace CMGrupo4 {
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Arial", 19, System::Drawing::FontStyle::Bold));
 			this->textBox4->ForeColor = System::Drawing::Color::White;
-			this->textBox4->Location = System::Drawing::Point(214, 551);
+			this->textBox4->Location = System::Drawing::Point(642, 674);
 			this->textBox4->Multiline = true;
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(468, 428);
+			this->textBox4->Size = System::Drawing::Size(468, 316);
 			this->textBox4->TabIndex = 3;
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &IA::textBox4_TextChanged);
 			// 
@@ -137,10 +137,10 @@ namespace CMGrupo4 {
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Arial", 20, System::Drawing::FontStyle::Bold));
 			this->textBox5->ForeColor = System::Drawing::Color::White;
-			this->textBox5->Location = System::Drawing::Point(778, 534);
+			this->textBox5->Location = System::Drawing::Point(1186, 131);
 			this->textBox5->Multiline = true;
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(314, 469);
+			this->textBox5->Size = System::Drawing::Size(292, 449);
 			this->textBox5->TabIndex = 4;
 			this->textBox5->TextChanged += gcnew System::EventHandler(this, &IA::textBox5_TextChanged);
 			// 
