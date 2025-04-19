@@ -130,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Funcionamiento.h" />
+    <ClInclude Include="IA.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PrediceLaIA.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -145,7 +148,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CM_Grupo4.cpp" />
-    <ClCompile Include="PrediceLaIA.cpp" />
+    <ClCompile Include="IA.cpp" />
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Menu_c.cpp" />
     <ClCompile Include="pch.cpp">
@@ -169,8 +172,8 @@
     <EmbeddedResource Include="Creditos.resx">
       <DependentUpon>Creditos.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrediceLaIA.resx">
-      <DependentUpon>PrediceLaIA.h</DependentUpon>
+    <EmbeddedResource Include="IA.resx">
+      <DependentUpon>IA.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_c.resx">
       <DependentUpon>Menu_c.h</DependentUpon>

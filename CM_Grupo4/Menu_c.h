@@ -1,6 +1,6 @@
 #pragma once
-#include"PrediceLaIA.h"
 #include"Creditos.h"
+#include"IA.h"
 using namespace std;
 namespace CMGrupo4 {
 
@@ -114,9 +114,9 @@ namespace CMGrupo4 {
 		}
 #pragma endregion
 	private: System::Void btn_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
-		Comenzar^ prediceLaIa = gcnew Comenzar();
+		IA^ IAF = gcnew IA();
 		this->Visible = false;
-		prediceLaIa->ShowDialog();
+		IAF->ShowDialog();
 		this->Visible = true;
 	}
 	private: System::Void Menu_c_Load(System::Object^ sender, System::EventArgs^ e) {

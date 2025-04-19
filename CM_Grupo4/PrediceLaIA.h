@@ -37,8 +37,6 @@ namespace CMGrupo4 {
 			this->textBox4->Text = gcnew System::String(matriz.c_str());
 			this->textBox5->Text = gcnew System::String(vector.c_str());
 		}
-
-
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -79,6 +77,8 @@ namespace CMGrupo4 {
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::Color::Snow;
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Arial", 24));
 			this->textBox1->Location = System::Drawing::Point(47, 99);
 			this->textBox1->Multiline = true;
@@ -128,7 +128,8 @@ namespace CMGrupo4 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1520, 985);
+			this->BackColor = System::Drawing::Color::MidnightBlue;
+			this->ClientSize = System::Drawing::Size(1526, 985);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
