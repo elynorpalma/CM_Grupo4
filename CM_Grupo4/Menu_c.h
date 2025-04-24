@@ -65,9 +65,9 @@ namespace CMGrupo4 {
 			this->btn_comenzar->BackColor = System::Drawing::Color::Transparent;
 			this->btn_comenzar->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btn_comenzar->ForeColor = System::Drawing::Color::Transparent;
-			this->btn_comenzar->Location = System::Drawing::Point(270, 729);
+			this->btn_comenzar->Location = System::Drawing::Point(199, 566);
 			this->btn_comenzar->Name = L"btn_comenzar";
-			this->btn_comenzar->Size = System::Drawing::Size(266, 113);
+			this->btn_comenzar->Size = System::Drawing::Size(196, 90);
 			this->btn_comenzar->TabIndex = 0;
 			this->btn_comenzar->UseVisualStyleBackColor = true;
 			this->btn_comenzar->UseWaitCursor = true;
@@ -78,9 +78,9 @@ namespace CMGrupo4 {
 			this->btn_creditos->BackColor = System::Drawing::Color::Transparent;
 			this->btn_creditos->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btn_creditos->ForeColor = System::Drawing::Color::Transparent;
-			this->btn_creditos->Location = System::Drawing::Point(609, 729);
+			this->btn_creditos->Location = System::Drawing::Point(441, 561);
 			this->btn_creditos->Name = L"btn_creditos";
-			this->btn_creditos->Size = System::Drawing::Size(314, 113);
+			this->btn_creditos->Size = System::Drawing::Size(241, 100);
 			this->btn_creditos->TabIndex = 1;
 			this->btn_creditos->UseVisualStyleBackColor = false;
 			this->btn_creditos->Click += gcnew System::EventHandler(this, &Menu_c::btn_creditos_Click);
@@ -90,9 +90,9 @@ namespace CMGrupo4 {
 			this->btn_salir->BackColor = System::Drawing::Color::Transparent;
 			this->btn_salir->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btn_salir->ForeColor = System::Drawing::Color::Transparent;
-			this->btn_salir->Location = System::Drawing::Point(1001, 729);
+			this->btn_salir->Location = System::Drawing::Point(722, 556);
 			this->btn_salir->Name = L"btn_salir";
-			this->btn_salir->Size = System::Drawing::Size(265, 113);
+			this->btn_salir->Size = System::Drawing::Size(217, 105);
 			this->btn_salir->TabIndex = 2;
 			this->btn_salir->UseVisualStyleBackColor = false;
 			this->btn_salir->Click += gcnew System::EventHandler(this, &Menu_c::btn_salir_Click);
@@ -102,7 +102,7 @@ namespace CMGrupo4 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(1520, 985);
+			this->ClientSize = System::Drawing::Size(1129, 724);
 			this->Controls->Add(this->btn_salir);
 			this->Controls->Add(this->btn_creditos);
 			this->Controls->Add(this->btn_comenzar);

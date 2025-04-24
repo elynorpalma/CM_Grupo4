@@ -56,8 +56,10 @@ namespace CMGrupo4 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(1520, 985);
+			this->ClientSize = System::Drawing::Size(1111, 753);
 			this->Name = L"Creditos";
+			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Creditos";
 			this->Load += gcnew System::EventHandler(this, &Creditos::Creditos_Load);
 			this->ResumeLayout(false);
