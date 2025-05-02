@@ -124,7 +124,7 @@ string cantidadIndicadores()
     string resultado = "La cantidad veces:\r\n";
     resultado += "CHATGPT (C): " + to_string(contadorC) + "\r\n";
     resultado += "GEMINI (G): " + to_string(contadorG) + "\r\n";
-    resultado += "DALL-E (D): " + to_string(contadorD) + "\r\n";
+    resultado += "DALL-E (E): " + to_string(contadorD) + "\r\n";
     resultado += "NOTION (N): " + to_string(contadorN) + "\r\n";
     resultado += "OTROS (O): " + to_string(contadorO) + "\r\n";
     return resultado;
@@ -145,7 +145,7 @@ string imprimirTransiciones() {
     return resultado;
 }
 string imprimirMatrizDeTransicion() {
-    string resultado = "Base:\r\n\r\n";
+    string resultado = "DIA CERO:\r\n\r\n";
     resultado += "La matriz de transición es:\r\n\r\n";
 
     resultado += "      ";

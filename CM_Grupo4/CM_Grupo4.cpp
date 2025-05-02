@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Menu_c.h"
-
+#include "PrediceLaIA.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace CMGrupo4;

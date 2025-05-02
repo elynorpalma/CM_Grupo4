@@ -29,6 +29,9 @@
     <ClInclude Include="Menu_c.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="PrediceLaIA.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="Creditos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -36,9 +39,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="IA.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="NDIAS.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,9 +59,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="IA.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="NDIAS.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
