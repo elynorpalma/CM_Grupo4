@@ -43,7 +43,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CM_Grupo4.cpp">
+    <ClCompile Include="CM_Grupo2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">

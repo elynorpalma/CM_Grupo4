@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="CM_Grupo4.cpp" />
+    <ClCompile Include="CM_Grupo2.cpp" />
     <ClCompile Include="IA.cpp" />
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Menu_c.cpp" />
