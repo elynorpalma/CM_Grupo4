@@ -1,5 +1,4 @@
 #pragma once
-
 namespace CMGrupo4 {
 
 	using namespace System;
@@ -71,7 +70,7 @@ namespace CMGrupo4 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(600, 200);
+			this->ClientSize = System::Drawing::Size(1600, 1200);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
@@ -87,13 +86,17 @@ namespace CMGrupo4 {
 		{
 			if (Int32::TryParse(textBox1->Text, nDias) && nDias > 0)
 			{
-				for (int i = 0; i < nDias; i++)
-				{
-					Form^ nuevoDia = gcnew Form();
-					nuevoDia->Text = "Día " + (i + 1).ToString();
-					nuevoDia->Size = System::Drawing::Size(400, 300);
-					nuevoDia->Show();
-				}
+				Form^ diaForm = gcnew Form();
+				diaForm->Text = "Día " + nDias.ToString();
+				diaForm->Size = System::Drawing::Size(1200,800);
+
+				Label^ diaLabel = gcnew Label();
+				diaLabel->Text = "Este es el día " + nDias.ToString();
+				diaLabel->Location = System::Drawing::Point(150, 130);
+				diaLabel->AutoSize = true;
+				diaForm->Controls->Add(diaLabel);
+
+				diaForm->Show();
 			}
 			else
 			{

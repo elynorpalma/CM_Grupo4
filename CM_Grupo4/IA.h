@@ -2,6 +2,7 @@
 #include "Funcionamiento.h"
 #include "iostream"
 #include <string>
+#include "NDIAS.h"
 namespace CMGrupo4 {
 
 	using namespace System;
@@ -195,7 +196,9 @@ private: System::Void textBox5_TextChanged(System::Object^ sender, System::Event
 	string resultado = calcularVectorUnitario();
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	NDIAS^ nuevoDia = gcnew NDIAS();
+	nuevoDia->Show();
+	this->Hide();
 }
 };
 }
