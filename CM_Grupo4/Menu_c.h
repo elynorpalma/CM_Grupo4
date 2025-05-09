@@ -115,9 +115,9 @@ namespace CMGrupo4 {
 #pragma endregion
 	private: System::Void btn_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
 		IA^ IAF = gcnew IA();
-		this->Visible = false;
-		IAF->ShowDialog();
-		this->Visible = true;
+		this->Hide(); 
+		IAF->ShowDialog(); 
+		this->Show();
 	}
 	private: System::Void Menu_c_Load(System::Object^ sender, System::EventArgs^ e) {
 	}

@@ -1,7 +1,5 @@
 #pragma once
 #include "Funcionamiento.h"
-#include "iostream"
-#include <string>
 #include "NDIAS.h"
 namespace CMGrupo4 {
 
@@ -21,19 +19,25 @@ namespace CMGrupo4 {
 			InitializeComponent();
 			baseDeDatos();
 
+			this->textBox1->Text = "BASE DE DATOS:\r\n\r\n";
+			this->textBox2->Text = "CONTEO DE HERRAMIENTAS:\r\n\r\n";
+			this->textBox3->Text = "TRANSICIONES:\r\n\r\n";
+			this->textBox4->Text = "MATRIZ DE TRANSICIÓN (BASE):\r\n\r\n";
+			this->textBox5->Text = "VECTOR UNITARIO:\r\n\r\n";
+
 			string datos = imprimirBase();
 			string suma = cantidadIndicadores();
 			compararTransición();
 			string transiciones = imprimirTransiciones();
 			calcularMatrizDeTransicion();
 			string matriz = imprimirMatrizDeTransicion();
-			string vector = calcularVectorUnitario();
+			string vector = imprimirVectorUnitario();
 
-			this->textBox1->Text = gcnew System::String(datos.c_str());
-			this->textBox2->Text = gcnew System::String(suma.c_str());
-			this->textBox3->Text = gcnew System::String(transiciones.c_str());
-			this->textBox4->Text = gcnew System::String(matriz.c_str());
-			this->textBox5->Text = gcnew System::String(vector.c_str());
+			this->textBox1->Text += gcnew String(imprimirBase().c_str());
+			this->textBox2->Text += gcnew String(cantidadIndicadores().c_str());
+			this->textBox3->Text += gcnew String(imprimirTransiciones().c_str());
+			this->textBox4->Text += gcnew String(imprimirMatrizDeTransicion().c_str());
+			this->textBox5->Text += gcnew String(imprimirVectorUnitario().c_str());
 		}
 
 
@@ -192,13 +196,13 @@ private: System::Void textBox4_TextChanged(System::Object^ sender, System::Event
 }
 private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->textBox5->Text;
-	char estadoFinal = Convert::ToChar(textBox5->Text[0]);
-	string resultado = calcularVectorUnitario();
+
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	NDIAS^ nuevoDia = gcnew NDIAS();
-	nuevoDia->Show();
-	this->Hide();
+	this->Hide(); 
+	nuevoDia->ShowDialog();
+	this->Show();
 }
 };
 }

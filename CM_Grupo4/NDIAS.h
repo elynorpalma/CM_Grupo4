@@ -1,4 +1,6 @@
 #pragma once
+#include "Funcionamiento.h"	
+#include "Resultados.h"			
 namespace CMGrupo4 {
 
 	using namespace System;
@@ -45,7 +47,7 @@ namespace CMGrupo4 {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(50, 50);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(200, 20);
+			this->label1->Size = System::Drawing::Size(550, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Ingrese el número de días:";
 			// 
@@ -83,24 +85,19 @@ namespace CMGrupo4 {
 
 	private:
 		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e)
-		{
-			if (Int32::TryParse(textBox1->Text, nDias) && nDias > 0)
-			{
-				Form^ diaForm = gcnew Form();
-				diaForm->Text = "Día " + nDias.ToString();
-				diaForm->Size = System::Drawing::Size(1200,800);
-
-				Label^ diaLabel = gcnew Label();
-				diaLabel->Text = "Este es el día " + nDias.ToString();
-				diaLabel->Location = System::Drawing::Point(150, 130);
-				diaLabel->AutoSize = true;
-				diaForm->Controls->Add(diaLabel);
-
-				diaForm->Show();
+		{   
+			if (Int32::TryParse(textBox1->Text, nDias) && nDias > 0) {
+				this->Hide();
+				Resultados^ resultadosForm = gcnew Resultados(nDias);
+				resultadosForm->Text = "Resultados después de " + nDias.ToString() + " días";
+				resultadosForm->ShowDialog();
+				this->Show();
 			}
-			else
-			{
-				MessageBox::Show("Por favor ingrese un número válido mayor a 0.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			else {
+				MessageBox::Show("Por favor ingrese un número entero válido mayor que 0",
+					"Error de entrada",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::Error);
 			}
 		}
 	};

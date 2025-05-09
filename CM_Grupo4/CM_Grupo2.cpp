@@ -8,6 +8,7 @@ using namespace CMGrupo4;
 int main()
 
 {
+    srand(time(NULL));
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
     Application::Run(gcnew CMGrupo4::Menu_c);

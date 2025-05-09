@@ -41,6 +41,9 @@
     <ClInclude Include="NDIAS.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Resultados.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CM_Grupo2.cpp">
@@ -62,6 +65,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="NDIAS.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Resultados.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
