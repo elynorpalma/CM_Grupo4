@@ -13,14 +13,12 @@ int contadorG = 0;
 int contadorD = 0;
 int contadorN = 0;
 int contadorO = 0;
-
 int transiciones[5][5] = { 0 };
 float matrizTransicion[5][5] = { 0 };
 float vectorUnitario[5] = { 0 };
 float matrizElevada[5][5];
 float probabilidades[5];
 char ultimoEstado;
-
 char IAs[5] = { 'C', 'G','D','N','O' };
 
 void baseDeDatos()

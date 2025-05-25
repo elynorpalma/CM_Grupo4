@@ -10,7 +10,7 @@ namespace CMGrupo4 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	
+
 	public ref class IA : public System::Windows::Forms::Form
 	{
 	public:
@@ -60,11 +60,11 @@ namespace CMGrupo4 {
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
-		
+
 
 
 #pragma region Windows Form Designer generated code
-		
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(IA::typeid));
@@ -178,31 +178,31 @@ namespace CMGrupo4 {
 
 		}
 #pragma endregion
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->textBox1->Text;
 	}
-private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e)
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->textBox2->Text;
 	}
-private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-{
-	this->textBox3->Text;
-}
-private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e)
-{
-	this->textBox4->Text;
-}
-private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->textBox5->Text;
+	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->textBox3->Text;
+	}
+	private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->textBox4->Text;
+	}
+	private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->textBox5->Text;
 
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	NDIAS^ nuevoDia = gcnew NDIAS();
-	this->Hide(); 
-	nuevoDia->ShowDialog();
-	this->Show();
-}
-};
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		NDIAS^ nuevoDia = gcnew NDIAS();
+		this->Hide();
+		nuevoDia->ShowDialog();
+		this->Show();
+	}
+	};
 }

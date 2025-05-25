@@ -1,6 +1,7 @@
 #pragma once
 #include"Creditos.h"
-#include"IA.h"
+#include "iostream"
+#include "IA.h"
 using namespace std;
 namespace CMGrupo4 {
 
@@ -114,9 +115,9 @@ namespace CMGrupo4 {
 		}
 #pragma endregion
 	private: System::Void btn_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
-		IA^ IAF = gcnew IA();
-		this->Hide(); 
-		IAF->ShowDialog(); 
+		IA^ IA_ = gcnew IA();
+		this->Hide();
+		IA_->ShowDialog();
 		this->Show();
 	}
 	private: System::Void Menu_c_Load(System::Object^ sender, System::EventArgs^ e) {

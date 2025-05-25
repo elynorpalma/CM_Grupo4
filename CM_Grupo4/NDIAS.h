@@ -45,7 +45,7 @@ namespace CMGrupo4 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(50, 50);
+			this->label1->Location = System::Drawing::Point(500, 500);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(550, 20);
 			this->label1->TabIndex = 0;
@@ -53,14 +53,14 @@ namespace CMGrupo4 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(260, 47);
+			this->textBox1->Location = System::Drawing::Point(550,500);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 1;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(380, 45);
+			this->button1->Location = System::Drawing::Point(500, 550);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(100, 26);
 			this->button1->TabIndex = 2;
