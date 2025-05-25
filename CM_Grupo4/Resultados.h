@@ -24,14 +24,14 @@ namespace CMGrupo4 {
                 imprimirMatrizPersonalizada(matrizElevada)).c_str());
 
             textBox2->Text = gcnew String((
-                "Vector unitario:\n" +
+                "Vector unitario:\r\n" +
                 imprimirVectorUnitario()).c_str());
 
             textBox3->Text = gcnew String((
                 imprimirProbabilidades(nDias)).c_str());
             
 
-            textBox4->Text = gcnew String(("Recomendaciones:\n" + generarRecomendaciones()).c_str());
+            textBox4->Text = gcnew String(("Recomendaciones:\n\r" + generarRecomendaciones()).c_str());
         }
 
     protected:
@@ -44,6 +44,7 @@ namespace CMGrupo4 {
         System::Windows::Forms::TextBox^ textBox2;
         System::Windows::Forms::TextBox^ textBox3;
         System::Windows::Forms::TextBox^ textBox4;
+    private: System::Windows::Forms::Button^ button1;
 
         System::ComponentModel::IContainer^ components;
 
@@ -54,6 +55,7 @@ namespace CMGrupo4 {
             this->textBox2 = (gcnew System::Windows::Forms::TextBox());
             this->textBox3 = (gcnew System::Windows::Forms::TextBox());
             this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+            this->button1 = (gcnew System::Windows::Forms::Button());
             this->SuspendLayout();
             // 
             // textBox1
@@ -92,7 +94,7 @@ namespace CMGrupo4 {
             this->textBox3->Margin = System::Windows::Forms::Padding(2);
             this->textBox3->Multiline = true;
             this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(270, 355);
+            this->textBox3->Size = System::Drawing::Size(297, 355);
             this->textBox3->TabIndex = 2;
             // 
             // textBox4
@@ -108,12 +110,33 @@ namespace CMGrupo4 {
             this->textBox4->Size = System::Drawing::Size(517, 211);
             this->textBox4->TabIndex = 1;
             // 
+            // button1
+            // 
+            this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+                static_cast<System::Int32>(static_cast<System::Byte>(0)));
+            this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+            this->button1->FlatAppearance->BorderSize = 0;
+            this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+            this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
+            this->button1->Font = (gcnew System::Drawing::Font(L"Arial Black", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->button1->ForeColor = System::Drawing::Color::Navy;
+            this->button1->Location = System::Drawing::Point(973, 678);
+            this->button1->Name = L"button1";
+            this->button1->Size = System::Drawing::Size(167, 68);
+            this->button1->TabIndex = 5;
+            this->button1->Text = L"SALIR";
+            this->button1->UseVisualStyleBackColor = false;
+            this->button1->Click += gcnew System::EventHandler(this, &Resultados::button1_Click_1);
+            // 
             // Resultados
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+            this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
             this->ClientSize = System::Drawing::Size(1152, 771);
+            this->Controls->Add(this->button1);
             this->Controls->Add(this->textBox4);
             this->Controls->Add(this->textBox3);
             this->Controls->Add(this->textBox2);
@@ -131,5 +154,8 @@ namespace CMGrupo4 {
         System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
            
         }
-    };
+    private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+        Application::Exit();
+    }
+};
 }

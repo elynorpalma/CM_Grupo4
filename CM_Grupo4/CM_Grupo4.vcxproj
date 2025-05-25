@@ -136,6 +136,7 @@
     </ClInclude>
     <ClInclude Include="NDIAS.h">
       <FileType>CppForm</FileType>
+      <DeploymentContent>true</DeploymentContent>
     </ClInclude>
     <ClInclude Include="Creditos.h">
       <FileType>CppForm</FileType>

@@ -166,7 +166,7 @@ int calcularIAMasProbable() {
 string imprimirProbabilidades(int nDias) {
     string resultado;
 
-    resultado += "\nPROBABILIDADES FINALES (" + to_string(nDias) + " días):\n\n";
+    resultado += "\nPROBABILIDADES FINALES (" + to_string(nDias) + " días):\r\n\n";
     for (int i = 0; i < 5; i++) {
         stringstream ss;
         ss << fixed << setprecision(2) << (probabilidades[i] * 100);
