@@ -7,7 +7,7 @@ using namespace std;
 void baseDeDatos();
 string imprimirBase();
 string cantidadIndicadores();
-void compararTransición();
+void compararTransicion();
 string imprimirTransiciones();
 void calcularMatrizDeTransicion();
 string imprimirMatrizDeTransicion();

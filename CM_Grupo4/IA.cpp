@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Funcionamiento.h"
-#include "iostream"
+#include <iostream>
 #include <string>
 #include <cmath>
 #include <iomanip>  
@@ -18,139 +18,147 @@ float matrizTransicion[5][5] = { 0 };
 float vectorUnitario[5] = { 0 };
 float matrizElevada[5][5];
 float probabilidades[5];
-char ultimoEstado;
 char IAs[5] = { 'C', 'G','D','N','O' };
 
-void baseDeDatos()
-{
+void baseDeDatos() {
+    // Semilla más aleatoria
+    srand(time(NULL));
 
-    for (int i = 0; i < 10; i++)
-    {
-        for (int j = 0; j < 10; j++)
-        {
-            int posicion = rand() % 5;
-            char letra = IAs[posicion];
-            matriz[i][j] = letra;
-            if (letra == 'C')contadorC++;
-            if (letra == 'G')contadorG++;
-            if (letra == 'D')contadorD++;
-            if (letra == 'N')contadorN++;
-            if (letra == 'O')contadorO++;
-        }
-    }
-}
-int indice(char letra)
-{
-    for (int i = 0; i < 5; i++)
-    {
-        if (IAs[i] == letra)
-            return i;
-    }
-}
-void compararTransición()
-{
-    for (int i = 0; i < 10; i++)
-    {
-        for (int j = 0; j < 9; j++)
-        {
-            char actual = matriz[i][j];
-            char siguiente = matriz[i][j + 1];
-            int ahora = indice(actual);
-            int despues = indice(siguiente);
-            transiciones[ahora][despues]++;
-        }
+    for (int i = 0; i < 10; i++) {
+        char anterior = IAs[rand() % 5]; // Comenzar con un estado aleatorio
 
-    }
-}
-int obtenerContador(char letra) {
-    if (letra == 'C') return contadorC;
-    if (letra == 'G') return contadorG;
-    if (letra == 'D') return contadorD;
-    if (letra == 'N') return contadorN;
-    if (letra == 'O') return contadorO;
-    return 0;
-}
-void calcularMatrizDeTransicion() {
-    for (int i = 0; i < 5; i++) {
-        int totalLetra = obtenerContador(IAs[i]);
+        for (int j = 0; j < 10; j++) {
+            // 60% de probabilidad de mantener el mismo estado
+            if (j > 0 && (rand() % 100) < 60) {
+                matriz[i][j] = anterior;
+            }
+            else {
+                matriz[i][j] = IAs[rand() % 5];
+                anterior = matriz[i][j];
+            }
 
-        if (totalLetra != 0) {
-            for (int j = 0; j < 5; j++) {
-                matrizTransicion[i][j] = (double)transiciones[i][j] / totalLetra;
+            // Actualizar contadores
+            switch (matriz[i][j]) {
+            case 'C': contadorC++; break;
+            case 'G': contadorG++; break;
+            case 'D': contadorD++; break;
+            case 'N': contadorN++; break;
+            case 'O': contadorO++; break;
             }
         }
     }
 }
+
+int indice(char letra) {
+    for (int i = 0; i < 5; i++) {
+        if (IAs[i] == letra) return i;
+    }
+    return -1;
+}
+
+void compararTransicion() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 9; j++) {
+            int actual = indice(matriz[i][j]);
+            int siguiente = indice(matriz[i][j + 1]);
+            if (actual != -1 && siguiente != -1) {
+                transiciones[actual][siguiente]++;
+            }
+        }
+    }
+}
+
+int obtenerContador(char letra) {
+    switch (letra) {
+    case 'C': return contadorC;
+    case 'G': return contadorG;
+    case 'D': return contadorD;
+    case 'N': return contadorN;
+    case 'O': return contadorO;
+    default: return 0;
+    }
+}
+
+void calcularMatrizDeTransicion() {
+    for (int i = 0; i < 5; i++) {
+        int total = 0;
+        for (int j = 0; j < 5; j++) {
+            total += transiciones[i][j];
+        }
+
+        if (total == 0) {
+            // Distribución uniforme si no hay transiciones
+            for (int j = 0; j < 5; j++) {
+                matrizTransicion[i][j] = 0.2f;
+            }
+        }
+        else {
+            for (int j = 0; j < 5; j++) {
+                matrizTransicion[i][j] = (float)transiciones[i][j] / total;
+            }
+        }
+    }
+}
+
+void multiplicarMatrices(const float a[5][5], const float b[5][5], float resultado[5][5]) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            resultado[i][j] = 0;
+            for (int k = 0; k < 5; k++) {
+                resultado[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+}
+
 void elevarMatrizAPotencia(int potencia, float resultado[5][5]) {
+    float temp[5][5];
+    float tempResult[5][5];
+
+    // Matriz identidad
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             resultado[i][j] = (i == j) ? 1.0f : 0.0f;
-        }
-    }
-
-    float temp[5][5];
-    float tempMultiplicacion[5][5];
-
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
             temp[i][j] = matrizTransicion[i][j];
         }
     }
 
     while (potencia > 0) {
         if (potencia % 2 == 1) {
+            multiplicarMatrices(resultado, temp, tempResult);
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 5; j++) {
-                    tempMultiplicacion[i][j] = 0;
-                    for (int k = 0; k < 5; k++) {
-                        tempMultiplicacion[i][j] += resultado[i][k] * temp[k][j];
-                    }
-                }
-            }
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 5; j++) {
-                    resultado[i][j] = tempMultiplicacion[i][j];
+                    resultado[i][j] = tempResult[i][j];
                 }
             }
         }
 
-        // Elevar temp al cuadrado
-        float tempCuadrado[5][5];
+        multiplicarMatrices(temp, temp, tempResult);
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                tempCuadrado[i][j] = 0;
-                for (int k = 0; k < 5; k++) {
-                    tempCuadrado[i][j] += temp[i][k] * temp[k][j];
-                }
-            }
-        }
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                temp[i][j] = tempCuadrado[i][j];
+                temp[i][j] = tempResult[i][j];
             }
         }
 
         potencia /= 2;
     }
 }
-void calcularVectorUnitario()
-{
+
+void calcularVectorUnitario() {
     char ultimoEstado = matriz[9][9];
     for (int i = 0; i < 5; i++) {
-        if (IAs[i] == ultimoEstado) {
-            vectorUnitario[i] = 1.0f;
-            break;
-        }
+        vectorUnitario[i] = (IAs[i] == ultimoEstado) ? 1.0f : 0.0f;
     }
 }
+
 void calcularProbabilidades(int n) {
     elevarMatrizAPotencia(n, matrizElevada);
     calcularVectorUnitario();
-    
+
     for (int i = 0; i < 5; i++) {
         probabilidades[i] = 0;
         for (int j = 0; j < 5; j++) {
-            probabilidades[i] += matrizElevada[j][i] * vectorUnitario[j];
+            probabilidades[i] += vectorUnitario[j] * matrizElevada[j][i];
         }
     }
 }

@@ -27,7 +27,7 @@ namespace CMGrupo4 {
 
 			string datos = imprimirBase();
 			string suma = cantidadIndicadores();
-			compararTransición();
+			compararTransicion();
 			string transiciones = imprimirTransiciones();
 			calcularMatrizDeTransicion();
 			string matriz = imprimirMatrizDeTransicion();
