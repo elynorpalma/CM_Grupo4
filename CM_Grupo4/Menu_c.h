@@ -2,6 +2,7 @@
 #include"Creditos.h"
 #include "iostream"
 #include "IA.h"
+#include"Escoger.h"
 using namespace std;
 namespace CMGrupo4 {
 
@@ -116,9 +117,9 @@ namespace CMGrupo4 {
 		}
 #pragma endregion
 	private: System::Void btn_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
-		IA^ IA_ = gcnew IA();
+		Escoger^ escoger = gcnew Escoger();
 		this->Hide();
-		IA_->ShowDialog();
+		escoger->ShowDialog();
 		this->Show();
 	}
 	private: System::Void Menu_c_Load(System::Object^ sender, System::EventArgs^ e) {

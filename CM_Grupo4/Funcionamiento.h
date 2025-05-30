@@ -3,11 +3,15 @@
 #pragma once
 #include <string>
 using namespace std;
-
+void baseUsuario1();
+void  baseUsuario2(); 
+void baseUsuario3(); 
 void baseDeDatos();
 string imprimirBase();
 string cantidadIndicadores();
 void compararTransicion();
+void resetearContadoresYTransiciones();
+void copiarMatrizUsuarioAMatrizPrincipal(int usuario);
 string imprimirTransiciones();
 void calcularMatrizDeTransicion();
 string imprimirMatrizDeTransicion();

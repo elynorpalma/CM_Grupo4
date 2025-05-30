@@ -14,11 +14,31 @@ namespace CMGrupo4 {
 	public ref class IA : public System::Windows::Forms::Form
 	{
 	public:
-		IA(void)
+		IA(int modo)
 		{
 			InitializeComponent();
-			baseDeDatos();
+			resetearContadoresYTransiciones();
+			baseUsuario1();
+			baseUsuario2();
+			baseUsuario3();
+			if (modo == 0) {
+				baseDeDatos();
+				this->Text = "IA - Modo Aleatorio";
+			}
+			else if (modo == 1) {
+				copiarMatrizUsuarioAMatrizPrincipal(1);  // Usuario 1
+				this->Text = "IA - Usuario 1 (Estático)";
+			}
+			else if (modo == 2) {
+				copiarMatrizUsuarioAMatrizPrincipal(2);  // Usuario 2
+				this->Text = "IA - Usuario 2 (Estático)";
+			}
+			else if (modo == 3) {
+				copiarMatrizUsuarioAMatrizPrincipal(3);  // Usuario 3
+				this->Text = "IA - Usuario 3 (Estático)";
+			}
 
+			// El resto del procesamiento es IGUAL para ambos modos
 			this->textBox1->Text = "BASE DE DATOS:\r\n\r\n";
 			this->textBox2->Text = "CONTEO DE HERRAMIENTAS:\r\n\r\n";
 			this->textBox3->Text = "TRANSICIONES:\r\n\r\n";
@@ -33,11 +53,11 @@ namespace CMGrupo4 {
 			string matriz = imprimirMatrizDeTransicion();
 			string vector = imprimirVectorUnitario();
 
-			this->textBox1->Text += gcnew String(imprimirBase().c_str());
-			this->textBox2->Text += gcnew String(cantidadIndicadores().c_str());
-			this->textBox3->Text += gcnew String(imprimirTransiciones().c_str());
-			this->textBox4->Text += gcnew String(imprimirMatrizDeTransicion().c_str());
-			this->textBox5->Text += gcnew String(imprimirVectorUnitario().c_str());
+			this->textBox1->Text += gcnew String(datos.c_str());
+			this->textBox2->Text += gcnew String(suma.c_str());
+			this->textBox3->Text += gcnew String(transiciones.c_str());
+			this->textBox4->Text += gcnew String(matriz.c_str());
+			this->textBox5->Text += gcnew String(vector.c_str());
 		}
 
 

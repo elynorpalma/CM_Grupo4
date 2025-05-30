@@ -8,6 +8,7 @@
 using namespace std;
 
 char matriz[10][10];
+char matrizUsuario1[10][10],matrizUsuario2[10][10], matrizUsuario3[10][10];
 int contadorC = 0;
 int contadorG = 0;
 int contadorD = 0;
@@ -20,15 +21,78 @@ float matrizElevada[5][5];
 float probabilidades[5];
 char IAs[5] = { 'C', 'G','D','N','O' };
 
+void baseUsuario1() 
+{
+    char base[10][10] = {
+    {'C','C','C','C','G','G','G','C','C','G'},
+    {'N','N','N','N','G','G','D','O','O','O'},
+    {'N','D','D','D','D','N','N','N','N','N'},
+    {'D','D','N','N','D','N','D','D','D','N'},
+    {'G','G','G','G','C','N','N','O','O','O'},
+    {'N','N','N','N','D','G','G','G','G','D'},
+    {'G','D','N','N','G','D','N','G','G','N'},
+    {'N','N','C','O','G','G','G','N','N','G'},
+    {'G','G','G','D','G','G','G','C','C','C'},
+    {'G','G','O','O','O','D','D','D','D','D'}
+    };
+
+
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+            matrizUsuario1[i][j] = base[i][j];
+        }
+    }
+}
+void baseUsuario2()
+{
+    char base[10][10] = {
+        {'D','D','D','G','O','O','N','N','N','N'},
+        {'O','N','D','D','D','N','G','G','G','C'},
+        {'G','G','G','G','O','G','G','G','G','G'},
+        {'D','G','G','N','C','D','D','D','D','O'},
+        {'C','C','D','D','D','D','C','N','D','D'},
+        {'D','D','D','D','D','O','O','G','G','G'},
+        {'C','C','C','C','G','D','D','D','D','D'},
+        {'C','C','O','O','O','O','C','C','C','C'},
+        {'G','G','N','N','N','N','N','N','N','N'},
+        {'O','C','N','N','N','O','O','O','O','C'}
+    };
+
+
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+            matrizUsuario2[i][j] = base[i][j];
+        }
+    }
+}
+void baseUsuario3()
+{
+    char base[10][10] = {
+        {'N','N','C','C','O','O','O','O','O','G'},
+        {'G','G','C','C','D','D','D','D','D','D'},
+        {'O','N','D','D','D','D','D','D','D','D'},
+        {'N','N','N','N','N','N','N','D','O','O'},
+        {'G','D','D','D','N','G','D','D','D','D'},
+        {'G','G','G','G','G','G','G','G','C','C'},
+        {'G','G','C','C','G','N','N','N','N','N'},
+        {'D','D','D','D','D','D','D','D','D','D'},
+        {'O','O','D','D','D','D','G','C','G','G'},
+        {'O','C','N','N','O','O','N','D','D','C'}
+    };
+
+
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+            matrizUsuario3[i][j] = base[i][j];
+        }
+    }
+}
 void baseDeDatos() {
-    // Semilla más aleatoria
-    srand(time(NULL));
 
     for (int i = 0; i < 10; i++) {
-        char anterior = IAs[rand() % 5]; // Comenzar con un estado aleatorio
+        char anterior = IAs[rand() % 5];
 
         for (int j = 0; j < 10; j++) {
-            // 60% de probabilidad de mantener el mismo estado
             if (j > 0 && (rand() % 100) < 60) {
                 matriz[i][j] = anterior;
             }
@@ -36,8 +100,6 @@ void baseDeDatos() {
                 matriz[i][j] = IAs[rand() % 5];
                 anterior = matriz[i][j];
             }
-
-            // Actualizar contadores
             switch (matriz[i][j]) {
             case 'C': contadorC++; break;
             case 'G': contadorG++; break;
@@ -55,7 +117,6 @@ int indice(char letra) {
     }
     return -1;
 }
-
 void compararTransicion() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 9; j++) {
@@ -67,7 +128,38 @@ void compararTransicion() {
         }
     }
 }
+void resetearContadoresYTransiciones() {
+    
+    contadorC = contadorG = contadorD = contadorN = contadorO = 0;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            transiciones[i][j] = 0;
+        }
+    }
+}
+void copiarMatrizUsuarioAMatrizPrincipal(int usuario) {
+    char (*matrizOrigen)[10] = nullptr;
 
+    switch (usuario) {
+    case 1: matrizOrigen = matrizUsuario1; break;
+    case 2: matrizOrigen = matrizUsuario2; break;
+    case 3: matrizOrigen = matrizUsuario3; break;
+    default: return;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            matriz[i][j] = matrizOrigen[i][j];
+            switch (matriz[i][j]) {
+            case 'C': contadorC++; break;
+            case 'G': contadorG++; break;
+            case 'D': contadorD++; break;
+            case 'N': contadorN++; break;
+            case 'O': contadorO++; break;
+            }
+        }
+    }
+}
 int obtenerContador(char letra) {
     switch (letra) {
     case 'C': return contadorC;
@@ -78,7 +170,6 @@ int obtenerContador(char letra) {
     default: return 0;
     }
 }
-
 void calcularMatrizDeTransicion() {
     for (int i = 0; i < 5; i++) {
         int total = 0;
@@ -87,7 +178,6 @@ void calcularMatrizDeTransicion() {
         }
 
         if (total == 0) {
-            // Distribución uniforme si no hay transiciones
             for (int j = 0; j < 5; j++) {
                 matrizTransicion[i][j] = 0.2f;
             }
@@ -99,7 +189,6 @@ void calcularMatrizDeTransicion() {
         }
     }
 }
-
 void multiplicarMatrices(const float a[5][5], const float b[5][5], float resultado[5][5]) {
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
@@ -110,12 +199,9 @@ void multiplicarMatrices(const float a[5][5], const float b[5][5], float resulta
         }
     }
 }
-
 void elevarMatrizAPotencia(int potencia, float resultado[5][5]) {
     float temp[5][5];
     float tempResult[5][5];
-
-    // Matriz identidad
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             resultado[i][j] = (i == j) ? 1.0f : 0.0f;
@@ -143,14 +229,12 @@ void elevarMatrizAPotencia(int potencia, float resultado[5][5]) {
         potencia /= 2;
     }
 }
-
 void calcularVectorUnitario() {
     char ultimoEstado = matriz[9][9];
     for (int i = 0; i < 5; i++) {
         vectorUnitario[i] = (IAs[i] == ultimoEstado) ? 1.0f : 0.0f;
     }
 }
-
 void calcularProbabilidades(int n) {
     elevarMatrizAPotencia(n, matrizElevada);
     calcularVectorUnitario();
@@ -171,6 +255,8 @@ int calcularIAMasProbable() {
     }
     return indiceMax;
 }
+
+
 string imprimirProbabilidades(int nDias) {
     string resultado;
 

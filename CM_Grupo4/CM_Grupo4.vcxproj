@@ -130,6 +130,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Escoger.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Funcionamiento.h" />
     <ClInclude Include="IA.h">
       <FileType>CppForm</FileType>
@@ -149,10 +152,14 @@
     <ClInclude Include="Resultados.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Usuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CM_Grupo2.cpp" />
+    <ClCompile Include="Escoger.cpp" />
     <ClCompile Include="IA.cpp" />
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Menu_c.cpp" />
@@ -164,6 +171,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Resultados.cpp" />
+    <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -180,6 +188,9 @@
       <DependentUpon>Creditos.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Escoger.resx">
+      <DependentUpon>Escoger.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IA.resx">
       <DependentUpon>IA.h</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resultados.resx">
       <DependentUpon>Resultados.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario.resx">
+      <DependentUpon>Usuario.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
